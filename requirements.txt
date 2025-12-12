@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+jinja2
+python-multipart
+opencv-python-headless
+Pillow
+numpy
+pytesseract
+# For local LLM/VLM (we will use a lightweight approach, maybe just Tesseract + Regex initially or a small model)
+# transformers
+# torch --extra-index-url https://download.pytorch.org/whl/cpu

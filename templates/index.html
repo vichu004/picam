@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearTag Pi Scanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="glass-header">
+            <div class="logo">
+                <i class="fa-solid fa-barcode"></i> ClearTag <span class="highlight">Scanner</span>
+            </div>
+            <div class="status-indicator">
+                <span class="dot online"></span> System Ready
+            </div>
+        </header>
+
+        <main>
+            <div class="scanner-section">
+                <div class="camera-container glass-panel">
+                    <video id="video" autoplay playsinline></video>
+                    <canvas id="canvas" style="display:none;"></canvas>
+                    <div class="scan-overlay">
+                        <div class="scan-line"></div>
+                        <div class="corner top-left"></div>
+                        <div class="corner top-right"></div>
+                        <div class="corner bottom-left"></div>
+                        <div class="corner bottom-right"></div>
+                    </div>
+                    <div class="camera-controls">
+                        <button id="capture-btn" class="action-btn primary-btn">
+                            <i class="fa-solid fa-camera"></i> Scan Product
+                        </button>
+                        <button id="switch-camera-btn" class="action-btn secondary-btn">
+                            <i class="fa-solid fa-rotate"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-section glass-panel" id="results-panel" style="display: none;">
+                <div class="section-header">
+                    <h2><i class="fa-solid fa-clipboard-check"></i> Compliance Report</h2>
+                    <button id="close-results" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                
+                <div class="loading-spinner" id="loader" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing with Local LLM...</p>
+                </div>
+
+                <div id="analysis-content">
+                    <!-- Results will be injected here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
